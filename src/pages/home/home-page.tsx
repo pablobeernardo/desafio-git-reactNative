@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import UserEntity from "../../entities/user-entity";
+import {Text} from 'react-native';
 import { Container, ResultContainer, Avatar, Name, Login, Location, Input, ButtonText, Button } from "../../style/style";
 
 export default function HomePage() {
@@ -8,7 +9,7 @@ export default function HomePage() {
     const [userData, setUserData] = useState(null);
 
     const handleSearch = async () => {
-        const accessToken = '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';
+        const accessToken = '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';
 
         try {
             const response = await axios.get(`https://api.github.com/users/${username}`, {

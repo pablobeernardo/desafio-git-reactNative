@@ -1,10 +1,10 @@
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
-  flex: 1;
   justify-content: center;
   align-items: center;
   padding: 20px;
+
 `;
 
 export const Input = styled.TextInput`
@@ -14,7 +14,10 @@ export const Input = styled.TextInput`
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 20px;
-  margin-top: 300px;
+  margin-top: 150px;
+  background-color: #dcdcdc;
+  text-align: center;
+  
 `;
 
 export const Button = styled.TouchableOpacity`
@@ -35,7 +38,7 @@ export const ButtonText = styled.Text`
 
 export const ResultContainer = styled.View`
   align-items: center;
-  
+      
 `;
 
 export const Avatar = styled.Image`
