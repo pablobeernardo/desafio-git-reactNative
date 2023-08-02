@@ -9,7 +9,7 @@ export default function HomePage({navigation, route}) {
     const [userData, setUserData] = useState(null);
 
     const handleSearch = async () => {
-        const accessToken = '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';
+        const accessToken = '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';
 
         try {
             const response = await axios.get(`https://api.github.com/users/${username}`, {
@@ -28,9 +28,9 @@ export default function HomePage({navigation, route}) {
                 userData.name = user.name;
                 userData.login = user.login;
                 userData.location = user.location;
-                user.id = user.id;
-                user.followers = user.followers;
-                user.publicRepos= user.public_repos;
+                userData.id = user.id;
+                userData.followers = user.followers;
+                userData.publicRepos= user.public_repos;
 
 
                 setUserData(userData);
@@ -55,7 +55,7 @@ export default function HomePage({navigation, route}) {
                 </ViewInputButton>
                 {userData && (
                     <ResultContainer>
-                        <TouchableOpacity onPress={() => navigation.navigate('UserPage') }>
+                        <TouchableOpacity onPress={() => navigation.navigate('UserPage', {user: userData}) }>
                         <Avatar source={{ uri: userData.avatar }} />
                         </TouchableOpacity>
                         <Name>{userData.name}</Name>
