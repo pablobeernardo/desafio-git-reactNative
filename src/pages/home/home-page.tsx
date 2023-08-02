@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
 import UserEntity from "../../entities/user-entity";
-import {Text} from 'react-native';
 import { Container, ResultContainer, Avatar, Name, Login, Location, Input, ButtonText, Button } from "../../style/style";
 
 export default function HomePage() {
@@ -28,6 +27,10 @@ export default function HomePage() {
                 userData.name = user.name;
                 userData.login = user.login;
                 userData.location = user.location;
+                user.id = user.id;
+                user.followers = user.followers;
+                user.publicRepos= user.public_repos;
+
 
                 setUserData(userData);
             }

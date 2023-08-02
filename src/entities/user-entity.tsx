@@ -5,6 +5,6 @@ export default class UserEntity{
     location: string; 
     id: number;
     followers: number;
-    publicRepositories: number;
+    publicRepos: number;
    
 }
