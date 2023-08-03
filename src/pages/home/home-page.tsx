@@ -9,7 +9,7 @@ export default function HomePage({navigation, route}) {
     const [userData, setUserData] = useState(null);
 
     const handleSearch = async () => {
-        const accessToken = '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';
+        const accessToken = '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';
 
         try {
             const response = await axios.get(`https://api.github.com/users/${username}`, {

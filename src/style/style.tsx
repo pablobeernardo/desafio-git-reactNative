@@ -1,9 +1,11 @@
 import styled from 'styled-components/native';
-import Icon from 'react-native-vector-icons/FontAwesome'; 
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 export const Container = styled.View`
   flex: 1;
   padding: 20px;
+  background-color: #f0f0f0; 
+  margin-top: 16px;
 `;
 
 export const ViewInputButton = styled.View`
@@ -31,23 +33,35 @@ export const Button = styled.TouchableOpacity`
   justify-content: center;
   align-items: center;
   margin-left: 10px;
+  elevation: 2;
+  shadow-color: #000;
+  shadow-opacity: 0.2;
+  shadow-radius: 5px;
+
 `;
 
 export const ButtonIcon = styled(Icon).attrs({
-    name: 'search', 
-    size: 16,
-    color: '#fff',
-  })``;
+  name: 'search',
+  size: 16,
+  color: '#fff',
+})``;
 
 export const ResultContainer = styled.View`
   align-items: center;
   margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  shadow-color: #000;
+  shadow-opacity: 0.2;
+  shadow-radius: 5px;
+  elevation: 5;
 `;
 
 export const Avatar = styled.Image`
-  width: 100px;
-  height: 100px;
-  border-radius: 50px;
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
   margin-bottom: 10px;
 `;
 
@@ -61,39 +75,47 @@ export const Name = styled.Text`
 export const Login = styled.Text`
   font-size: 18px;
   margin-bottom: 5px;
+  color: #555;
 `;
 
 export const Location = styled.Text`
   font-size: 16px;
+  color: #555;
     
 `;
 
 export const BackButton = styled.TouchableOpacity`
   position: absolute;
-  top: 35px;
+  top: 20px;
   left: 20px;
+  background-color: #007bff;
+  padding: 8px 15px;
+  border-radius: 8px;
+  elevation: 2;
   
 `;
 
 export const BackText = styled.Text`
-  color: black;
+  color: white;
   font-size: 16px;
 `;
 
 export const CardUser = styled.View`
-  flex-direction: row;
-  margin-top: 25px;
-  justify-content: center;
-  max-width: 100%;
-  border-bottom-width: 1px;
-  border-bottom-color: #ccc;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  shadow-color: #000;
+  shadow-opacity: 0.2;
+  shadow-radius: 5px;
+  elevation: 5;
+  margin-top: 45px;
   
 `;
 
 export const UserDetails = styled.View`
-  margin-left: 20px;
+  font-size: 16px;
+  margin-vertical: 5px;
   align-items: center;
-  margin-bottom: 10px;
  
 `;
 
@@ -114,12 +136,16 @@ export const UserDetailsText = styled.Text`
 
 export const TitleList = styled.Text`
   text-align: center;
-  margin-top: 30px;
+  margin-top: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+
 
 `;
 
 export const RepositoriesList = styled.View`
-  margin-top: 20px;
+  margin-top: 10px;
   flex:1;
 `;
 

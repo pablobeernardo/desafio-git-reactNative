@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { FlatList } from "react-native";
+import { FlatList, Linking, TouchableOpacity } from "react-native";
 import { AvatarDeitals, BackButton, BackText, CardUser, Container, RepositoriesList, RepositoryItem, RepositoryName, TitleList, UserDetails, UserDetailsText } from "../../style/style";
 import RepositoryEntity from "../../entities/repository-entity";
 
@@ -16,7 +16,7 @@ export default function UserPage({ navigation, route }) {
     // Aqui você pode fazer a requisição dos repositórios do usuário
     const fetchUserRepositories = async () => {
       try {
-        const accessToken = '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';
+        const accessToken = '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';
         const response = await axios.get(`https://api.github.com/users/${userData.login}/repos`, {
           headers: {
             Authorization: `token ${accessToken}`,
@@ -43,6 +43,13 @@ export default function UserPage({ navigation, route }) {
     fetchUserRepositories();
   }, []);
 
+  const openGitHubRepo = (fullName) => {
+    const url = `https://github.com/${fullName}`;
+    Linking.openURL(url).catch((err) =>
+      console.error(`Erro ao abrir a URL: ${url}`, err)
+    );
+  };
+
   return (
     <Container>
       <BackButton onPress={handleGoBack}>
@@ -50,13 +57,13 @@ export default function UserPage({ navigation, route }) {
       </BackButton>
       <CardUser>
         <UserDetails>
-        <AvatarDeitals source={{ uri: userData.avatar }} />
-        <UserDetailsText>Nome: {userData.name}</UserDetailsText>
-        <UserDetailsText>Login: {userData.login}</UserDetailsText>
-        <UserDetailsText>Localização: {userData.location}</UserDetailsText>
-        <UserDetailsText>ID: {userData.id}</UserDetailsText>
-        <UserDetailsText>Seguidores: {userData.followers}</UserDetailsText>
-        <UserDetailsText>Repositórios Públicos: {userData.publicRepos}</UserDetailsText>
+          <AvatarDeitals source={{ uri: userData.avatar }} />
+          <UserDetailsText>Nome: {userData.name}</UserDetailsText>
+          <UserDetailsText>Login: {userData.login}</UserDetailsText>
+          <UserDetailsText>Localização: {userData.location}</UserDetailsText>
+          <UserDetailsText>ID: {userData.id}</UserDetailsText>
+          <UserDetailsText>Seguidores: {userData.followers}</UserDetailsText>
+          <UserDetailsText>Repositórios Públicos: {userData.publicRepos}</UserDetailsText>
         </UserDetails>
       </CardUser>
       <TitleList>Lista de Repositórios:</TitleList>
@@ -65,11 +72,15 @@ export default function UserPage({ navigation, route }) {
           data={userRepositories}
           keyExtractor={(item) => item.fullName}
           renderItem={({ item }) => (
-            <RepositoryItem>
-              <RepositoryName>{item.name}</RepositoryName>
-              <RepositoryName>{item.description}</RepositoryName>
-              {/* Mostrar outras informações do repositório, se necessário */}
-            </RepositoryItem>
+            <TouchableOpacity onPress={() => openGitHubRepo(item.fullName)}>
+              <RepositoryItem>
+                <RepositoryName>Nome: {item.name}</RepositoryName>
+                <RepositoryName>Linguagem: {item.language}</RepositoryName>
+                <RepositoryName>Descrição: {item.description}</RepositoryName>
+                <RepositoryName>Criado em: {item.createdAt}</RepositoryName>
+                <RepositoryName>Último push: {item.lastPush}</RepositoryName>
+              </RepositoryItem>
+            </TouchableOpacity>
           )}
         />
       </RepositoriesList>
