@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { FlatList, Linking, TouchableOpacity } from "react-native";
-import { AvatarDeitals, BackButton, BackText, CardUser, Container, RepositoriesList, RepositoryItem, RepositoryName, TitleList, UserDetails, UserDetailsText } from "../../style/style";
+import { AvatarDeitals, ButtonBack, ButtonText, CardUser, Container, RepositoriesList, RepositoryItem, RepositoryName, TitleList, UserDetails, UserDetailsText } from "../../style/style";
 import RepositoryEntity from "../../entities/repository-entity";
 
 export default function UserPage({ navigation, route }) {
@@ -13,10 +13,9 @@ export default function UserPage({ navigation, route }) {
   };
 
   useEffect(() => {
-    // Aqui você pode fazer a requisição dos repositórios do usuário
     const fetchUserRepositories = async () => {
       try {
-        const accessToken = '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';
+        const accessToken = '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';
         const response = await axios.get(`https://api.github.com/users/${userData.login}/repos`, {
           headers: {
             Authorization: `token ${accessToken}`,
@@ -52,9 +51,9 @@ export default function UserPage({ navigation, route }) {
 
   return (
     <Container>
-      <BackButton onPress={handleGoBack}>
-        <BackText>Voltar</BackText>
-      </BackButton>
+      <ButtonBack onPress={handleGoBack}>
+        <ButtonText>Voltar</ButtonText>
+      </ButtonBack>
       <CardUser>
         <UserDetails>
           <AvatarDeitals source={{ uri: userData.avatar }} />
@@ -66,7 +65,7 @@ export default function UserPage({ navigation, route }) {
           <UserDetailsText>Repositórios Públicos: {userData.publicRepos}</UserDetailsText>
         </UserDetails>
       </CardUser>
-      <TitleList>Lista de Repositórios:</TitleList>
+      <TitleList>Lista de repositórios:</TitleList>
       <RepositoriesList>
         <FlatList
           data={userRepositories}

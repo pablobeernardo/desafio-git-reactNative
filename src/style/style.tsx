@@ -41,12 +41,25 @@ export const Button = styled.TouchableOpacity`
 `;
 
 export const ButtonIcon = styled(Icon).attrs({
-  name: 'search',
+  name: 'list',
   size: 16,
   color: '#fff',
+ 
 })``;
 
 export const ResultContainer = styled.View`
+  align-items: center;
+  margin-top: 20px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  shadow-color: #000;
+  shadow-opacity: 0.2;
+  shadow-radius: 5px;
+  elevation: 5;
+`;
+
+export const RecentList = styled.View`
   align-items: center;
   margin-top: 20px;
   background-color: #fff;
@@ -84,7 +97,7 @@ export const Location = styled.Text`
     
 `;
 
-export const BackButton = styled.TouchableOpacity`
+export const ButtonBack = styled.TouchableOpacity`
   position: absolute;
   top: 20px;
   left: 20px;
@@ -95,7 +108,16 @@ export const BackButton = styled.TouchableOpacity`
   
 `;
 
-export const BackText = styled.Text`
+export const ButtonStyle = styled.TouchableOpacity`
+  align-items:center;
+  background-color: #007bff;
+  padding: 8px 15px;
+  border-radius: 8px;
+  elevation: 2;
+  
+`;
+
+export const ButtonText = styled.Text`
   color: white;
   font-size: 16px;
 `;
@@ -110,12 +132,14 @@ export const CardUser = styled.View`
   elevation: 5;
   margin-top: 45px;
   
+  
 `;
 
 export const UserDetails = styled.View`
   font-size: 16px;
   margin-vertical: 5px;
   align-items: center;
+  
  
 `;
 
@@ -164,3 +188,19 @@ export const RepositoryDescription = styled.Text`
   font-size: 16px;
   font-style: italic;
 `;
+
+export const ModalContent = styled.View`
+  flex: 1;
+  background-color: #f0f0f0;
+  padding: 20px;
+`;
+
+export const RecentUserItem = styled.TouchableOpacity`
+  flex-direction: collunm;
+  align-items: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-bottom-width: 1px;
+  border-bottom-color: #ccc;
+`;
+
