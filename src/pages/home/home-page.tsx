@@ -66,7 +66,7 @@ export default function HomePage({ navigation }) {
                 </Button>
             </ViewInputButton>
             <ButtonStyle onPress={handleSearch}>
-                <ButtonText>Pesquisas Usuário</ButtonText>
+                <ButtonText>Pesquisar usuário</ButtonText>
             </ButtonStyle>
             {userData && (
                 <ResultContainer>
