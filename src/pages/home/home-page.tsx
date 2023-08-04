@@ -13,7 +13,7 @@ export default function HomePage({ navigation }) {
     const [showRecentUsers, setShowRecentUsers] = useState(false);
 
     const handleSearch = async () => {
-        const accessToken = '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';
+        const accessToken = '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';
 
         try {
             const response = await axios.get(`https://api.github.com/users/${username}`, {

@@ -15,7 +15,7 @@ export default function UserPage({ navigation, route }) {
   useEffect(() => {
     const fetchUserRepositories = async () => {
       try {
-        const accessToken = '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';
+        const accessToken = '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';
         const response = await axios.get(`https://api.github.com/users/${userData.login}/repos`, {
           headers: {
             Authorization: `token ${accessToken}`,
